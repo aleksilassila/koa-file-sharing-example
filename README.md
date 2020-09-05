@@ -1,6 +1,6 @@
 # koa-file-sharing-example
 
-An example app built with koa.js and next.js. Allows users to upload multiple files and then access the files from anywhere using a link. So it's a mega.nz clone. No I did not do any css styling :)
+Mega.nz clone. An example app built with koa.js and next.js. Allows users to upload multiple files and then access the files from anywhere using a link. No I did not do any css styling :)
 
 ## Screenshots
 
@@ -8,6 +8,8 @@ An example app built with koa.js and next.js. Allows users to upload multiple fi
 ![View files](/Screenshot-2.png?raw=true)
 
 ## Getting Started
+
+.env file: `export DB_URL=postgres://user:pass@localhost:5432/database`
 
 -   `yarn install`
 -   `source .env`
