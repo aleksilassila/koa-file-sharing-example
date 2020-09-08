@@ -18,7 +18,7 @@ services:
       - 9001:9000
     environment:
       DB_URL: ${DB_URL}
-      ENDPOINT: ${ENDPOINT}
+      BACKEND_ENDPOINT: ${BACKEND_ENDPOINT}
       FRONTEND_ENDPOINT: ${FRONTEND_ENDPOINT}
     depends_on:
       - db
