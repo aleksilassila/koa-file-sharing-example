@@ -6,6 +6,7 @@ import theme from "../theme";
 
 const Home = () => {
     const [files, setFiles] = useState(null);
+    const [comment, setComment] = useState("");
 
     const uploadFiles = async (e) => {
         e.preventDefault();
@@ -15,6 +16,8 @@ const Home = () => {
         for (let file of files) {
             data.append("files", file);
         }
+
+        data.append("comment", comment);
 
         await axios({
             method: "POST",
@@ -32,30 +35,51 @@ const Home = () => {
 
     return (
         <div>
-            <h1 id="heading">Upload and Share Files Anonymously</h1>
+            <div id="heading">
+                <h1>Upload and Share Files Anonymously</h1>
+                <h6>(Example)</h6>
+            </div>
             <form onSubmit={(e) => uploadFiles(e)}>
-                <div>
-                    <label>Upload files:</label>
-                    <input
-                        type="file"
-                        id="file-upload"
-                        name="files"
-                        onChange={(e) => setFiles(e.target.files)}
-                        multiple
-                    />
-                </div>
+                <label>Upload files:</label>
+                <input
+                    type="file"
+                    id="file-upload"
+                    name="files"
+                    onChange={(e) => setFiles(e.target.files)}
+                    multiple
+                />
+                <label>Comment:</label>
+                <input
+                    type="text"
+                    onChange={(e) => setComment(e.target.value)}
+                    value={comment}
+                />
+
                 <input type="submit" />
             </form>
             <style jsx>{`
                 #heading {
-                    margin-top: 10vh;
+                    padding: 10vh 0;
+                    margin: 0;
                     text-align: center;
+                    background-color: paleturquoise;
                 }
 
-                form  {
+                h1,
+                h6 {
+                    margin: 0;
+                }
+
+                form {
                     display: flex;
                     justify-content: center;
                     flex-direction: column;
+                    padding: 5vh 30vw;
+                }
+
+                label,
+                input[type="file"] {
+                    margin-bottom: 1em;
                 }
             `}</style>
         </div>
