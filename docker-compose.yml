@@ -15,14 +15,9 @@ services:
     volumes:
       - ./backend:/usr/src/app
     ports:
-      - 9000:9000
-      - 5432:5432
+      - 9001:9000
     environment:
-      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
-      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
       DB_URL: ${DB_URL}
-      ENDPOINT: ${ENDPOINT}
-      FRONTEND_ENDPOINT: ${FRONTEND_ENDPOINT}
     depends_on:
       - db
 
@@ -30,10 +25,8 @@ services:
     build: frontend
     volumes:
       - ./frontend:/usr/src/app
-    environment:
-      ENDPOINT: ${ENDPOINT}
     ports:
-      - 3000:3000
+      - 3001:3000
 
 volumes:
   dbdata:
