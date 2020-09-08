@@ -18,6 +18,8 @@ services:
       - 9001:9000
     environment:
       DB_URL: ${DB_URL}
+      ENDPOINT: ${ENDPOINT}
+      FRONTEND_ENDPOINT: ${FRONTEND_ENDPOINT}
     depends_on:
       - db
 
@@ -25,6 +27,8 @@ services:
     build: frontend
     volumes:
       - ./frontend:/usr/src/app
+    environment:
+      ENDPOINT: ${ENDPOINT}
     ports:
       - 3001:3000
 
