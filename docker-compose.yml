@@ -13,7 +13,7 @@ services:
   backend:
     build: backend
     volumes:
-      - ./backend:/usr/src/app
+      - ./backend/uploads:/usr/src/app/uploads
     ports:
       - 9001:9000
     environment:
@@ -28,7 +28,7 @@ services:
     volumes:
       - ./frontend:/usr/src/app
     environment:
-      ENDPOINT: ${ENDPOINT}
+      BACKEND_ENDPOINT: ${BACKEND_ENDPOINT}
     ports:
       - 3001:3000
 
